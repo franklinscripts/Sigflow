@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*{
+    font-family: 'Manrope', sans-serif;
+}
+
+a:focus{
+    background-color: #ECFDF3;
+    color: #32d583;
+}
+a:hover{
+    background-color: #ECFDF3;
+    color: #32d583;
+}
