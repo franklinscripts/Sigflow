@@ -39,6 +39,7 @@ const Login = () => {
         const response = await axios.post(apiUrl, user);
         setUser(response.data);
         localStorage.setItem("user", JSON.stringify(response.data));
+        navigate('/')
       } else {
         toast.error("Invalid email or password", toastOptions);
         throw new Error("Invalid email or password");
@@ -58,17 +59,15 @@ const Login = () => {
       const foundUser = JSON.parse(loggedInUser);
       setUser(foundUser);
       navigate("/"); // Redirect to the dashboard if the user is already logged in
-    }
+    } 
   }, [navigate]);
 
-  if (user) {
-    return navigate('/'); // You can return null or any component you want to render after successful login
-  }
+  
 
   return (
 
     <div className="flex items-center justify-center flex-col gap-4">
-      <div className="flex flex-col items-center border border-gray-100 p-[30px] md:w-[500px] w-[350px]  h-full  justify-center mx-auto rounded-md">
+      <div className="flex flex-col items-center border border-gray-100 p-[30px] md:w-[500px] w-full  h-full  justify-center md:mx-auto  rounded-md">
 
         <header className="text-center m-4 ">
           <h1 className=" font-medium text-[24px] text-[#101828] leading-normal">Welcome back!</h1>
@@ -79,7 +78,7 @@ const Login = () => {
           <div className="py-3">
 
             <label htmlFor="email" className=" font-normal leading-5 text-[12px] text-[#101828]">Email</label>
-            <div className="border w-[420px] h-[38px] rounded-lg flex items-center px-4 mt-3">
+            <div className="border md:w-[420px] w-full h-[38px] rounded-lg flex items-center px-4 mt-3">
 
               <input
                 type="text"
@@ -92,7 +91,7 @@ const Login = () => {
           </div>
           <div className="py-3">
             <label htmlFor="password" className=" font-normal leading-5 text-[12px] text-[#101828]">Password</label>
-            <div className="border w-[420px] h-[38px] rounded-lg flex items-center px-4 mt-3">
+            <div className="border md:w-[420px] w-full h-[38px] rounded-lg flex items-center px-4 mt-3">
               <input
                 type={`${show ? "text" : "password"}`}
                 value={password}
@@ -129,7 +128,7 @@ const Login = () => {
       </div>
       <span className="text-[12px] leading-5 font-normal text-[#101828]">Don{"'"}t have an account ? <span className="text-[#12B76A]">Sign in</span></span>
     </div>
-  );
+  )
 };
 
 export default Login;

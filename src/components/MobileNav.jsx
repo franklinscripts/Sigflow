@@ -41,7 +41,7 @@ const navData = [
 
 const MobileNav = ( {open} ) => {
     return (
-        <div className={`w-[300px] transition-all ease-linear duration-200  absolute top-[100px] bg-gray-100 p-4 transform ${!open ? "translate-x-[-150%]": "translate-x-[-10%] rounded-md"} md:hidden`}>
+        <div className={`w-[300px] transition-all ease-linear duration-200  absolute top-[100px] bg-gray-100 p-4 transform ${!open ? "translate-x-[-150%]": "translate-x-[5%] rounded-md"} md:hidden`}>
             <div className='flex items-center bg-[#18181b0d] rounded-[6px] px-2 py-2 w-[184px] justify-between'>
                 <span className='text-[14px] text-[#101828]'>Sigflow</span>
                 <img src={Dropdown} alt="img" className='w-[]' />

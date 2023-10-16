@@ -16,7 +16,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className='flex items-center max-w-full mx-12 my-4 justify-between border-b py-2 border-slate-100'>
+    <div className='flex items-center md:max-w-full md:mx-12 mx-1 my-4 justify-between border-b py-2 border-slate-100'>
       <img src={Menu} alt="" className='w-[38px] md:hidden block cursor-pointer' onClick={() => setNavOpen(prev => !prev)} />
       <img src={Logo} alt="logo" className='md:block hidden' />
 
