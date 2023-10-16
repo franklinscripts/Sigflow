@@ -13,7 +13,7 @@ const Navbar = () => {
       // const foundUser = JSON.parse(loggedInUser);
       setIsAuthenticated(true);
     }
-  }, []);
+  }, [isAuthenticated]);
 
   return (
     <div className='flex items-center md:max-w-full md:mx-12 mx-1 my-4 justify-between border-b py-2 border-slate-100'>
