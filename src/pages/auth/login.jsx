@@ -21,8 +21,6 @@ const Login = () => {
   const [user, setUser] = useState(null);
   const [show, setShow] = useState(false)
   const apiUrl = "https://sig-staging-api-a4c37da3d933.herokuapp.com/auth/login";
-  const controller = new AbortController();
-  const signal = controller.signal
   const data = {
     email: "shalom.111@gmail.com",
     password: "shalom.111@gmail.com"
