@@ -60,7 +60,6 @@ const Login = () => {
       setUser(foundUser);
       navigate("/"); // Redirect to the dashboard if the user is already logged in
     } 
-    return () => controller.abort()
   }, [navigate]);
 
   
