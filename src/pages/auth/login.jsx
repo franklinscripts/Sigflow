@@ -8,7 +8,6 @@ import "react-toastify/dist/ReactToastify.css";
 import Google from '../../assets/google.svg'
 import Github from '../../assets/github.svg'
 import Key from '../../assets/key-01.svg'
-
 const toastOptions = {
   position: "top-right",
   autoClose: 3000,
@@ -40,15 +39,16 @@ const Login = () => {
         const user = { email, password };
         const response = await axios.post(apiUrl, user);
         setUser(response.data);
-        localStorage.setItem("user", JSON.stringify(response.data), {signal});
+        localStorage.setItem("user", JSON.stringify(response.data));
         navigate('/')
-      } else {
+      } 
+      else {
         toast.error("Invalid email or password", toastOptions);
         throw new Error("Invalid email or password");
       }
     } catch (error) {
       console.error(error);
-      toast.error("Login failed. Please check your credentials.", toastOptions);
+      // toast.error("Login failed. Please check your credentials.", toastOptions);
     }
   };
 
@@ -62,7 +62,6 @@ const Login = () => {
       setUser(foundUser);
       navigate("/"); // Redirect to the dashboard if the user is already logged in
     } 
-    handleSubmit()
     return () => controller.abort()
   }, [navigate]);
 
@@ -113,24 +112,24 @@ const Login = () => {
           </div>
           <div className="flex items-center justify-center flex-col gap-4">
               <div className="flex items-center justify-center gap-4">
-                <button className="px-[20px] py-[10px] rounded-lg flex items-center gap-2 border border-[#D0D5DD] text-[#101828] text-[13px]">
+                <button disabled className="px-[20px] py-[10px] rounded-lg flex items-center gap-2 border border-[#D0D5DD] text-[#101828] text-[13px]">
                   Sign in with Github
                   <img src={Github} alt="" />
                 </button >
-                <button className="px-[20px] py-[10px] rounded-lg flex items-center gap-2 border border-[#D0D5DD] text-[#101828] text-[13px]">
+                <button disabled className="px-[20px] py-[10px] rounded-lg flex items-center gap-2 border border-[#D0D5DD] text-[#101828] text-[13px]">
                   Sign in with Google
                   <img src={Google} alt="" />
                 </button>
               </div>
-              <button className="px-[20px] py-[10px] text-[13px] rounded-lg flex items-center gap-2 border border-[#D0D5DD] text-[#101828]">
+              <button disabled className="px-[20px] py-[10px] text-[13px] rounded-lg flex items-center gap-2 border border-[#D0D5DD] text-[#101828]">
                 Sign in with SSO
                 <img src={Key} alt="" />
               </button>
           </div>
-          <ToastContainer />
         </form>
       </div>
       <span className="text-[12px] leading-5 font-normal text-[#101828]">Don{"'"}t have an account ? <span className="text-[#12B76A]">Sign in</span></span>
+      <ToastContainer />
     </div>
   )
 };

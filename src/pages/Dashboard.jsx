@@ -9,7 +9,7 @@ const Dashboard = () => {
 
     if (!isLoggedIn) {
       navigate('/auth/login'); // Use an absolute path
-      return null;
+      // return null;
     }
   }, [navigate])
 
