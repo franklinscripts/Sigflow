@@ -22,6 +22,8 @@ const Login = () => {
   const [user, setUser] = useState(null);
   const [show, setShow] = useState(false)
   const apiUrl = "https://sig-staging-api-a4c37da3d933.herokuapp.com/auth/login";
+  const controller = new AbortController();
+  const signal = controller.signal
   const data = {
     email: "shalom.111@gmail.com",
     password: "shalom.111@gmail.com"
@@ -38,7 +40,7 @@ const Login = () => {
         const user = { email, password };
         const response = await axios.post(apiUrl, user);
         setUser(response.data);
-        localStorage.setItem("user", JSON.stringify(response.data));
+        localStorage.setItem("user", JSON.stringify(response.data), {signal});
         navigate('/')
       } else {
         toast.error("Invalid email or password", toastOptions);
@@ -54,13 +56,14 @@ const Login = () => {
 
   // Check if the user is already logged in
   useEffect(() => {
-    handleSubmit()
     const loggedInUser = localStorage.getItem("user");
     if (loggedInUser) {
       const foundUser = JSON.parse(loggedInUser);
       setUser(foundUser);
       navigate("/"); // Redirect to the dashboard if the user is already logged in
     } 
+    handleSubmit()
+    return () => controller.abort()
   }, [navigate]);
 
   
