@@ -77,7 +77,7 @@ const Login = () => {
         <form onSubmit={handleSubmit} className="">
           <div className="py-3">
 
-            <label htmlFor="email" className=" font-normal leading-5 text-[12px] text-[#101828]">Email</label>
+            <label className=" font-normal leading-5 text-[12px] text-[#101828]">Email</label>
             <div className="border md:w-[420px] w-full h-[38px] rounded-lg flex items-center px-4 mt-3">
 
               <input
@@ -90,7 +90,7 @@ const Login = () => {
             </div>
           </div>
           <div className="py-3">
-            <label htmlFor="password" className=" font-normal leading-5 text-[12px] text-[#101828]">Password</label>
+            <label className=" font-normal leading-5 text-[12px] text-[#101828]">Password</label>
             <div className="border md:w-[420px] w-full h-[38px] rounded-lg flex items-center px-4 mt-3">
               <input
                 type={`${show ? "text" : "password"}`}
