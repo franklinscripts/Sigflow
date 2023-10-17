@@ -16,6 +16,7 @@ const toastOptions = {
 };
 
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, setUser] = useState(null);
@@ -50,7 +51,6 @@ const Login = () => {
     }
   };
 
-  const navigate = useNavigate();
 
   // Check if the user is already logged in
   useEffect(() => {
@@ -62,6 +62,9 @@ const Login = () => {
     } 
   }, [navigate]);
 
+  if(user) {
+    navigate('/');
+  }
   
 
   return (
