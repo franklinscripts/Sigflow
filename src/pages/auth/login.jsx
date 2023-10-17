@@ -54,6 +54,7 @@ const Login = () => {
 
   // Check if the user is already logged in
   useEffect(() => {
+    handleSubmit()
     const loggedInUser = localStorage.getItem("user");
     if (loggedInUser) {
       const foundUser = JSON.parse(loggedInUser);
