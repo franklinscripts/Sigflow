@@ -21,7 +21,6 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [user, setUser] = useState(null);
   const [show, setShow] = useState(false)
-  const apiUrl = "https://sig-staging-api-a4c37da3d933.herokuapp.com/auth/login";
   const data = {
     email: "shalom.111@gmail.com",
     password: "shalom.111@gmail.com"
@@ -35,10 +34,8 @@ const Login = () => {
     }
     try {
       if (email == data.email && password == data.password) {
-        const user = { email, password };
-        const response = await axios.post(apiUrl, user);
-        setUser(response.data);
-        localStorage.setItem("user", JSON.stringify(response.data));
+        const user = {email, password}
+        localStorage.setItem("user", JSON.stringify(user));
         navigate('/')
       } 
       else {
